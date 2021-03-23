@@ -53,6 +53,8 @@ def handle_message(event):
     # get msg details
     print('msg from [', user_name, '](', user_id, ') : ', msg)
 
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text = msg))
+
 # run app
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=5000)
