@@ -53,6 +53,16 @@ def handle_message(event):
     # get msg details
     print('msg from [', user_name, '](', user_id, ') : ', msg)
 
+    with open('json.txt', 'r') as f:
+        flexmessagestring = f.read()
+
+    flex_message = FlexSendMessage(
+        alt_text='hello',
+        contents=json.loads(flexmessagestring)
+    )
+
+    line_bot_api.reply_message(event.reply_token, flex_message)
+    
 # run app
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=5000)
