@@ -2,7 +2,7 @@
   "type": "bubble",
   "hero": {
     "type": "image",
-    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_3_movie.png",
+    "url": "https://i.imgur.com/QKpgCUg.jpg",
     "size": "full",
     "aspectRatio": "20:13",
     "aspectMode": "cover",
@@ -18,7 +18,7 @@
     "contents": [
       {
         "type": "text",
-        "text": "BROWN'S ADVENTURE\nIN MOVIE",
+        "text": "童樂天親子童玩夢幻民宿",
         "wrap": true,
         "weight": "bold",
         "gravity": "center",
@@ -144,9 +144,6 @@
         "margin": "xxl",
         "contents": [
           {
-            "type": "spacer"
-          },
-          {
             "type": "image",
             "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/linecorp_code_withborder.png",
             "aspectMode": "cover",
@@ -154,11 +151,11 @@
           },
           {
             "type": "text",
-            "text": "You can enter the theater by using this code instead of a ticket",
+            "text": "歡迎蒞臨，請持此票券快速入住唷~",
             "color": "#aaaaaa",
-            "wrap": true,
             "margin": "xxl",
-            "size": "xs"
+            "size": "xs",
+            "wrap": true
           }
         ]
       }
