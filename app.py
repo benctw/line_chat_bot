@@ -53,6 +53,9 @@ def handle_message(event):
     # get msg details
     print('msg from [', user_name, '](', user_id, ') : ', msg)
 
+    line_bot_api.reply_message(event.reply_token, VideoSendMessage(original_content_url='https://d18def1b3f81.ngrok.io/static/dog.mp4',
+                                                                    preview_image_url='https://d18def1b3f81.ngrok.io/static/dog.png'))
+
 # run app
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=5000)
