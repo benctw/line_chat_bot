@@ -53,6 +53,47 @@ def handle_message(event):
     # get msg details
     print('msg from [', user_name, '](', user_id, ') : ', msg)
 
+    confirm_template_message = TemplateSendMessage(
+        alt_text='Confirm template',
+        template=ConfirmTemplate(
+            text='是否確定匯款100元?',
+            actions=[
+                PostbackAction(
+                    label='是',
+                    display_text='我確定款款100元',
+                    data='action=pay'
+                ),
+                PostbackAction(
+                    label='否',
+                    display_text='才不要',
+                    data='action=nopay'
+                )
+                # MessageAction(
+                #     label='是',
+                #     text='我確定款款100元'
+                # ),
+                # MessageAction(
+                #     label='否',
+                #     text='才不要'
+                # )
+            ]
+        )
+    )
+
+    
+
+
+    line_bot_api.reply_message(event.reply_token, confirm_template_message)
+    
+
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    print(event.postback.data)
+    print(parse_qsl(event.postback.data))
+    print(dict(parse_qsl(event.postback.data)))
+    data=dict(parse_qsl(event.postback.data))
+    print(data['action'])
+
 # run app
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=5000)
