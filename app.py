@@ -193,11 +193,12 @@ def handle_postback(event):
                                         contents=bubbledict
                                         )
         # print(flexmessagedict)
-        line_bot_api.reply_message(event.reply_token, [TextSendMessage(text=appointment_tutor_done_text),
-                                                    TextSendMessage(text=appointment_tutor_done_datetime_text),
-                                                    flex_message])
+        # line_bot_api.reply_message(event.reply_token, [TextSendMessage(text=appointment_tutor_done_text),
+        #                                             TextSendMessage(text=appointment_tutor_done_datetime_text),
+        #                                             flex_message])
+        line_bot_api.reply_message(event.reply_token, flex_message])    
 
 
 # run app
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=5000)
+    app.run(host='127.0.0.1', port=5002)
