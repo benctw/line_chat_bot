@@ -15,7 +15,7 @@ from linebot.models import (
     PostbackEvent, ConfirmTemplate, CarouselTemplate, CarouselColumn,
     ImageCarouselTemplate, ImageCarouselColumn, FlexSendMessage
 )
-import json
+import json, os
 
 # create flask server
 app = Flask(__name__)
@@ -53,8 +53,8 @@ def handle_message(event):
     # get msg details
     print('msg from [', user_name, '](', user_id, ') : ', msg)
 
-    with open('json.txt', 'r', encoding='UTF-8') as f:
-        
+    json_path = os.path.join(os.path.split(__file__)[0], 'json.txt')
+    with open(json_path, 'r', encoding='UTF-8') as f:
         flexmessagestring = f.read()
 
     flex_message = FlexSendMessage(
