@@ -56,10 +56,11 @@ def handle_message(event):
     json_path = os.path.join(os.path.split(__file__)[0], 'json.txt')
     with open(json_path, 'r', encoding='UTF-8') as f:
         flexmessagestring = f.read()
-
+    flexmessagedict = json.loads(flexmessagestring)
+    flexmessagedict['header']['contents'][0]['contents'][1]['text']='南港'
     flex_message = FlexSendMessage(
         alt_text='hello',
-        contents=json.loads(flexmessagestring)
+        contents=flexmessagedict
     )
 
     line_bot_api.reply_message(event.reply_token, flex_message)
