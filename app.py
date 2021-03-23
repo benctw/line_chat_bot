@@ -53,6 +53,85 @@ def handle_message(event):
     # get msg details
     print('msg from [', user_name, '](', user_id, ') : ', msg)
 
+    carousel_template_message = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+            columns=[
+                CarouselColumn(
+                    thumbnail_image_url='https://i.imgur.com/vgFbdDK.jpg',
+                    title='參加網聚',
+                    text='請問你想參加哪一場網聚',
+                    actions=[
+                        PostbackAction(
+                            label='2021/5/1',
+                            display_text='我想參加2021/5/1的時段',
+                            data='action=meetup&itemid=1'
+                        ),
+                        PostbackAction(
+                            label='2021/6/1',
+                            display_text='我想參加2021/6/1的時段',
+                            data='action=meetup&itemid=2'
+                        ),
+                        PostbackAction(
+                            label='2021/7/1',
+                            display_text='我想參加2021/7/1的時段',
+                            data='action=meetup&itemid=3'
+                        )
+                        # MessageAction(
+                        #     label='message1',
+                        #     text='message text1'
+                        # ),
+                        # URIAction(
+                        #     label='uri1',
+                        #     uri='http://example.com/1'
+                        # )
+                    ]
+                ),
+                CarouselColumn(
+                    thumbnail_image_url='https://i.imgur.com/SYP9lpm.jpg',
+                    title='線上家教',
+                    text='請預約線上家教的時段',
+                    actions=[
+                        PostbackAction(
+                            label='2021/5/1',
+                            display_text='我想參加2021/5/1的時段',
+                            data='action=tutor&itemid=1'
+                        ),
+                        PostbackAction(
+                            label='2021/6/1',
+                            display_text='我想參加2021/6/1的時段',
+                            data='action=tutor&itemid=2'
+                        ),
+                        PostbackAction(
+                            label='2021/7/1',
+                            display_text='我想參加2021/7/1的時段',
+                            data='action=tutor&itemid=3'
+                        )
+                        # MessageAction(
+                        #     label='message2',
+                        #     text='message text2'
+                        # ),
+                        # URIAction(
+                        #     label='uri2',
+                        #     uri='http://example.com/2'
+                        # )
+                    ]
+                )
+            ]
+        )
+    )
+
+    line_bot_api.reply_message(event.reply_token, carousel_template_message)
+    
+
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    print(event.postback.data)
+    print(parse_qsl(event.postback.data))
+    print(dict(parse_qsl(event.postback.data)))
+    data=dict(parse_qsl(event.postback.data))
+    print(data['action'])
+
 # run app
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=5000)
