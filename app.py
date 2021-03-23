@@ -53,6 +53,41 @@ def handle_message(event):
     # get msg details
     print('msg from [', user_name, '](', user_id, ') : ', msg)
 
+    image_carousel_template_message = TemplateSendMessage(
+        alt_text='ImageCarousel template',
+        template=ImageCarouselTemplate(
+            columns=[
+                ImageCarouselColumn(
+                    image_url='https://i.imgur.com/iDe2PXz.jpg',
+                    action=PostbackAction(
+                        label='postback1',
+                        display_text='postback text1',
+                        data='action=buy&itemid=1'
+                    )
+                ),
+                ImageCarouselColumn(
+                    image_url='https://i.imgur.com/L3mU9My.jpg',
+                    action=PostbackAction(
+                        label='postback2',
+                        display_text='postback text2',
+                        data='action=buy&itemid=2'
+                    )
+                )
+            ]
+        )
+    )
+
+    line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
+    
+
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    print(event.postback.data)
+    print(parse_qsl(event.postback.data))
+    print(dict(parse_qsl(event.postback.data)))
+    data=dict(parse_qsl(event.postback.data))
+    print(data['action'])
+
 # run app
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=5000)
