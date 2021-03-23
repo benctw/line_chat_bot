@@ -17,7 +17,7 @@
           },
           {
             "type": "text",
-            "text": "Akihabara",
+            "text": "台北",
             "color": "#ffffff",
             "size": "xl",
             "flex": 4,
@@ -37,7 +37,7 @@
           },
           {
             "type": "text",
-            "text": "Shinjuku",
+            "text": "高雄",
             "color": "#ffffff",
             "size": "xl",
             "flex": 4,
@@ -58,7 +58,7 @@
     "contents": [
       {
         "type": "text",
-        "text": "Total: 1 hour",
+        "text": "Total: 1.5 hours",
         "color": "#b7b7b7",
         "size": "xs"
       },
@@ -68,7 +68,7 @@
         "contents": [
           {
             "type": "text",
-            "text": "20:30",
+            "text": "08:30",
             "size": "sm",
             "gravity": "center"
           },
@@ -97,7 +97,7 @@
           },
           {
             "type": "text",
-            "text": "Akihabara",
+            "text": "台北",
             "gravity": "center",
             "flex": 4,
             "size": "sm"
@@ -150,7 +150,7 @@
           },
           {
             "type": "text",
-            "text": "Walk 4min",
+            "text": "高鐵行駛",
             "gravity": "center",
             "flex": 4,
             "size": "xs",
@@ -170,7 +170,7 @@
             "contents": [
               {
                 "type": "text",
-                "text": "20:34",
+                "text": "09:20",
                 "gravity": "center",
                 "size": "sm"
               }
@@ -202,7 +202,7 @@
           },
           {
             "type": "text",
-            "text": "Ochanomizu",
+            "text": "台中",
             "gravity": "center",
             "flex": 4,
             "size": "sm"
@@ -254,7 +254,7 @@
           },
           {
             "type": "text",
-            "text": "Metro 1hr",
+            "text": "高鐵行駛",
             "gravity": "center",
             "flex": 4,
             "size": "xs",
@@ -270,7 +270,7 @@
         "contents": [
           {
             "type": "text",
-            "text": "20:40",
+            "text": "10:00",
             "gravity": "center",
             "size": "sm"
           },
@@ -299,7 +299,7 @@
           },
           {
             "type": "text",
-            "text": "Shinjuku",
+            "text": "高雄",
             "gravity": "center",
             "flex": 4,
             "size": "sm"

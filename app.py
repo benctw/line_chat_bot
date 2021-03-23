@@ -53,7 +53,8 @@ def handle_message(event):
     # get msg details
     print('msg from [', user_name, '](', user_id, ') : ', msg)
 
-    with open('json.txt', 'r') as f:
+    with open('json.txt', 'r', encoding='UTF-8') as f:
+        
         flexmessagestring = f.read()
 
     flex_message = FlexSendMessage(
