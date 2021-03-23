@@ -200,7 +200,7 @@ def handle_postback(event):
         # line_bot_api.reply_message(event.reply_token, [TextSendMessage(text=appointment_tutor_done_text),
         #                                             TextSendMessage(text=appointment_tutor_done_datetime_text),
         #                                             flex_message])
-        line_bot_api.reply_message(event.reply_token, flex_message])    
+        line_bot_api.reply_message(event.reply_token, flex_message)    
 
 
 # run app
