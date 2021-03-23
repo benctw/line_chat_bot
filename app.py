@@ -184,11 +184,20 @@ def handle_postback(event):
         print(appointment_datetime)
         appointment_tutor_done_text = f'謝謝{user_name}，以幫您預約飯店完成'
         appointment_tutor_done_datetime_text = f'你預約的日期為{appointment_datetime:%Y-%m-%d}，時間是{appointment_datetime:%H:%M}'
-        line_bot_api.reply_message(
-            reply_token = event.reply_token,
-            messages = [TextSendMessage(text=appointment_tutor_done_text),
-                        TextSendMessage(text=appointment_tutor_done_datetime_text)]
-        )
+
+        json_path = os.path.join(os.path.split(__file__)[0], 'json-ticket.txt')
+        with open(json_path, 'r', encoding='UTF-8') as f:
+            bubblestring = f.read()
+        bubbledict = json.loads(bubblestring)
+        flex_message = FlexSendMessage(alt_text='hello',
+                                        contents=bubbledict
+                                        )
+        # print(flexmessagedict)
+        line_bot_api.reply_message(event.reply_token, [TextSendMessage(text=appointment_tutor_done_text),
+                                                    TextSendMessage(text=appointment_tutor_done_datetime_text),
+                                                    flex_message])
+
+
 # run app
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=5000)
